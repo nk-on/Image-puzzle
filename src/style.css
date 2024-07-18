@@ -3,15 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
-h2{
-    position: relative;
-    top:10%;
-    left: 5%;
+h2 {
+  position: relative;
+  top: 10%;
+  left: 5%;
 }
-.placeholder{
+.placeholder {
   height: 100vh;
   display: flex;
   justify-content: space-between;
@@ -23,12 +23,20 @@ img {
   height: auto;
 }
 .container {
-  width: min(400px,90%);
+  width: min(400px, 90%);
   height: 60vh;
   border: 2px solid purple;
 }
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+}
+.square {
+  height: 100%;
+  border: 1px solid purple;
+}
 @media only screen and (max-width: 600px) {
-  .placeholder{
+  .placeholder {
     display: flex;
     flex-direction: column;
   }
