@@ -5,14 +5,21 @@ function appendSquares() {
     square.classList.add('square');
     imageContainer.appendChild(square);
   }
-};
-
+}
 function appendSlides() {
-  for (let i = 0; i < 16; i++) {
-    const slide = document.createElement('img');
-    slide.classList.add('slide')
-    slide.setAttribute('src', `Assets/toucan-splitedImages/${i}.jpg`);
-    slidesContainer.appendChild(slide);
+  let i = 0;
+  const numbers = new Set();
+  while (i < 16) {
+    let randIdx = Math.floor(Math.random() * 16);
+    if (numbers.has(randIdx)) {
+      randIdx = Math.floor(Math.random() * 16);
+    } else {
+      const slide = document.createElement('img');
+      slide.classList.add('slide');
+      slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
+      slidesContainer.appendChild(slide);
+      i++;
+    }
   }
 }
 appendSquares();
