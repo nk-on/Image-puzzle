@@ -12,9 +12,10 @@ function appendSlides() {
       slide.classList.add('slide');
       slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
       slidesContainer.appendChild(slide);
+      numbers.add(randIdx);
       i++;
     }
   }
-};
+}
 appendSlides();
-export { imageContainer, slidesContainer };
+export { imageContainer };
