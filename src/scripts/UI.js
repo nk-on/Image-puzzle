@@ -1,4 +1,4 @@
-import { imageContainer } from './script.js';
+import { imageContainer,slidesContainer } from './script.js';
 function appendSquares() {
   for (let i = 1; i <= 16; i++) {
     const square = document.createElement('div');
@@ -6,4 +6,5 @@ function appendSquares() {
     imageContainer.appendChild(square);
   }
 };
+
 appendSquares();
