@@ -1,5 +1,17 @@
 const slidesContainer = document.querySelector('[data-container="slides"]');
 const imageContainer = document.querySelector('[data-container="image"]');
+function appendSquares() {
+  for (let i = 1; i <= 16; i++) {
+    const square = document.createElement('div');
+    const slideSquare = document.createElement('div');
+    square.classList.add('square');
+    slideSquare.classList.add('square');
+    imageContainer.appendChild(square);
+    slidesContainer.appendChild(slideSquare);
+  }
+}
+appendSquares();
+const slideSquares = Array.from(slidesContainer.children);
 function appendSlides() {
   let i = 0;
   const numbers = new Set();
@@ -11,11 +23,11 @@ function appendSlides() {
       const slide = document.createElement('img');
       slide.classList.add('slide');
       slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
-      slidesContainer.appendChild(slide);
+      slide.setAttribute('draggable', 'true');
+      slideSquares[i].appendChild(slide)
       numbers.add(randIdx);
       i++;
     }
   }
 }
 appendSlides();
-export { imageContainer };

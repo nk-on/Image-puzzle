@@ -24,7 +24,7 @@ img {
 }
 .container {
   display: grid;
-  grid-template-columns: repeat(4,25%);
+  grid-template-columns: repeat(4,1fr);
   width: min(400px, 90%);
   height: 60vh;
   border: 2px solid purple;
@@ -35,6 +35,8 @@ img {
 }
 .slide{
   width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
   .placeholder {
