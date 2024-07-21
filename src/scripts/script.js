@@ -26,12 +26,13 @@ function appendSlides() {
       slide.classList.add('slide');
       slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
       slide.setAttribute('draggable', 'true');
-      slideSquares[i].appendChild(slide);
       slide.id = i;
+      slideSquares[i].appendChild(slide);
       numbers.add(randIdx);
       i++;
     }
   }
 }
 appendSlides();
-export {slideSquares,imageSquares,slidesContainer,movesContainer}
+const slides = slidesContainer.querySelectorAll('img');
+export {slideSquares,imageSquares,slidesContainer,movesContainer,slides}

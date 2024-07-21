@@ -1,5 +1,5 @@
-import { slideSquares,imageSquares,slidesContainer,movesContainer } from "./script.js";
-const slides = slidesContainer.querySelectorAll('img');
+import { slideSquares,imageSquares,movesContainer,slides } from "./script.js";
+console.log(slides)
 let moves = 0;
 slides.forEach((slide) => {
   slide.addEventListener('dragstart', (e) => {
@@ -26,8 +26,10 @@ imageSquares.forEach((square) => {
   square.addEventListener('drop', (e) => {
     const id = e.dataTransfer.getData('text');
     const dropElement = document.getElementById(id);
+    console.log(dropElement)
     square.appendChild(dropElement);
     moves++;
     movesContainer.innerText = moves;
   });
 });
+export {slides}
