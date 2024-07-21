@@ -1,5 +1,7 @@
 const slidesContainer = document.querySelector('[data-container="slides"]');
 const imageContainer = document.querySelector('[data-container="image"]');
+const movesContainer = document.querySelector('[data-moves]');
+let moves = 0;
 function appendSquares() {
   for (let i = 1; i <= 16; i++) {
     const square = document.createElement('div');
@@ -49,6 +51,8 @@ imageSquares.forEach((square)=>{
   square.addEventListener('drop',(e)=>{
     const id = e.dataTransfer.getData('text');
     const dropElement = document.getElementById(id);
-    square.appendChild(dropElement)
+    square.appendChild(dropElement);
+    moves++;
+    movesContainer.innerText = moves;
   })
 });
