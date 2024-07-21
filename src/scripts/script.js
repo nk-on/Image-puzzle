@@ -24,35 +24,45 @@ function appendSlides() {
       randIdx = Math.floor(Math.random() * 16);
     } else {
       const slide = document.createElement('img');
-      slide.classList.add('slide')
+      slide.classList.add('slide');
       slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
       slide.setAttribute('draggable', 'true');
-      slideSquares[i].appendChild(slide)
+      slideSquares[i].appendChild(slide);
       slide.id = i;
       numbers.add(randIdx);
       i++;
     }
   }
-};
+}
 appendSlides();
-const slides = slidesContainer.querySelectorAll('img')
-slides.forEach((slide)=>{
-  slide.addEventListener('dragstart',(e)=>{
+const slides = slidesContainer.querySelectorAll('img');
+slides.forEach((slide, index) => {
+  slide.addEventListener('dragstart', (e) => {
     e.dataTransfer.setData('text/plain', e.target.id);
   });
-  slide.addEventListener('dragover',(e)=>{
+  slide.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
 });
-imageSquares.forEach((square)=>{
-  square.addEventListener('dragover',(e)=>{
+slideSquares.forEach((square) => {
+  square.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
-  square.addEventListener('drop',(e)=>{
+  square.addEventListener('drop', (e) => {
+    const id = e.dataTransfer.getData('text');
+    const dropElement = document.getElementById(id);
+    square.appendChild(dropElement);
+  });
+});
+imageSquares.forEach((square) => {
+  square.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+  square.addEventListener('drop', (e) => {
     const id = e.dataTransfer.getData('text');
     const dropElement = document.getElementById(id);
     square.appendChild(dropElement);
     moves++;
     movesContainer.innerText = moves;
-  })
+  });
 });
