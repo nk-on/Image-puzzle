@@ -26,7 +26,6 @@ function appendSlides() {
       slide.classList.add('slide');
       slide.setAttribute('src', `Assets/toucan-splitedImages/${randIdx}.jpg`);
       slide.setAttribute('draggable', 'true');
-      slide.id = i;
       slideSquares[i].appendChild(slide);
       numbers.add(randIdx);
       i++;
@@ -35,4 +34,13 @@ function appendSlides() {
 }
 appendSlides();
 const slides = slidesContainer.querySelectorAll('img');
+function addID(){
+  let regex = /\d+/g;
+  slides.forEach((slide)=>{
+    console.log(slide.src)
+    let result = slide.src.match(regex);
+    slide.id = result[result.length-1];
+  });
+}; 
+addID();
 export {slideSquares,imageSquares,slidesContainer,movesContainer,slides}
