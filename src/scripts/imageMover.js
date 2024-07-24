@@ -3,6 +3,9 @@ import {
   imageSquares,
   movesContainer,
   slides,
+  dialogElement,
+  totalMovesContainer,
+  playAgainButton,
 } from './script.js';
 function moveIncreaser() {
   let moves = 0;
@@ -11,21 +14,28 @@ function moveIncreaser() {
     movesContainer.innerText = moves;
   };
 }
+const increaseMoves = moveIncreaser();
+function openDialog() {
+  dialogElement.showModal();
+  totalMovesContainer.textContent = movesContainer.innerText;
+  playAgainButton.addEventListener('click', () => {
+    location.reload();
+  });
+};
 function checkCompletion() {
   for (let i = 0; i < imageSquares.length; i++) {
     const imageSquare = imageSquares[i];
-    console.log(imageSquare)
+    console.log(imageSquare);
     let imgId;
-    if(imageSquare.firstChild){
+    if (imageSquare.firstChild) {
       imgId = imageSquare.firstChild.id;
     }
     if (imgId !== imageSquare.id) {
       return;
     }
-  };
-  alert('You Completed the image')
+  }
+  openDialog();
 }
-const increaseMoves = moveIncreaser();
 slides.forEach((slide) => {
   slide.addEventListener('dragstart', (e) => {
     slide.classList.add('draggable');
