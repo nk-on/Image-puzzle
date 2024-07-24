@@ -1,9 +1,16 @@
-import { slideSquares,imageSquares,movesContainer,slides } from "./script.js";
-console.log(slides)
+import {
+  slideSquares,
+  imageSquares,
+  movesContainer,
+  slides,
+  checkMatch,
+} from './script.js';
 let moves = 0;
+console.log(slides)
 slides.forEach((slide) => {
   slide.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', e.target.id);
+      slide.classList.add('draggable');
+      console.log(slide)
   });
   slide.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -14,9 +21,9 @@ slideSquares.forEach((square) => {
     e.preventDefault();
   });
   square.addEventListener('drop', (e) => {
-    const id = e.dataTransfer.getData('text');
-    const dropElement = document.getElementById(id);
-    square.appendChild(dropElement);
+    const dropElement = document.getElementsByClassName('draggable')[0];
+    checkMatch(square.id, dropElement.id);
+    square.appendChild(dropElement);;
   });
 });
 imageSquares.forEach((square) => {
@@ -24,12 +31,11 @@ imageSquares.forEach((square) => {
     e.preventDefault();
   });
   square.addEventListener('drop', (e) => {
-    const id = e.dataTransfer.getData('text');
-    const dropElement = document.getElementById(id);
-    console.log(dropElement)
+    const dropElement = document.getElementsByClassName('draggable')[0];
+    checkMatch(square.id, dropElement.id);
     square.appendChild(dropElement);
     moves++;
     movesContainer.innerText = moves;
   });
 });
-export {slides}
+export { slides };
