@@ -23,7 +23,8 @@ slideSquares.forEach((square) => {
   square.addEventListener('drop', (e) => {
     const dropElement = document.getElementsByClassName('draggable')[0];
     checkMatch(square.id, dropElement.id);
-    square.appendChild(dropElement);;
+    square.appendChild(dropElement);
+    dropElement.classList.remove('draggable')
   });
 });
 imageSquares.forEach((square) => {
@@ -34,6 +35,7 @@ imageSquares.forEach((square) => {
     const dropElement = document.getElementsByClassName('draggable')[0];
     checkMatch(square.id, dropElement.id);
     square.appendChild(dropElement);
+    dropElement.classList.remove('draggable')
     moves++;
     movesContainer.innerText = moves;
   });
