@@ -25,7 +25,6 @@ function openDialog() {
 function checkCompletion() {
   for (let i = 0; i < imageSquares.length; i++) {
     const imageSquare = imageSquares[i];
-    console.log(imageSquare);
     let imgId;
     if (imageSquare.firstChild) {
       imgId = imageSquare.firstChild.id;
@@ -39,7 +38,6 @@ function checkCompletion() {
 slides.forEach((slide) => {
   slide.addEventListener('dragstart', () => {
     slide.classList.add('draggable');
-    console.log(slide);
   });
   slide.addEventListener('dragover', (e) => {
     e.preventDefault();
