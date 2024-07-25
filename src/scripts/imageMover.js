@@ -49,6 +49,7 @@ slideSquares.forEach((square) => {
   });
   square.addEventListener('drop', () => {
     const dropElement = document.getElementsByClassName('draggable')[0];
+    //Preventing user from droping slide on another slide
     if(square.children.length > 0) return;
     square.appendChild(dropElement);
     dropElement.classList.remove('draggable');
@@ -60,6 +61,7 @@ imageSquares.forEach((square) => {
   });
   square.addEventListener('drop', () => {
     const dropElement = document.getElementsByClassName('draggable')[0];
+    //Preventing user from droping slide on another slide
     if(square.children.length > 0) return;
     square.appendChild(dropElement);
     increaseMoves();

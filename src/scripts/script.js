@@ -39,6 +39,7 @@ function appendSlides() {
 }
 appendSlides();
 const slides = slidesContainer.querySelectorAll('img');
+//Adding id's to slide images according to their numeration in assets folder
 function addID() {
   let regex = /\d+/g;
   slides.forEach((slide) => {
