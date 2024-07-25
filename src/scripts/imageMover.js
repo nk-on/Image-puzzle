@@ -37,7 +37,7 @@ function checkCompletion() {
   openDialog();
 }
 slides.forEach((slide) => {
-  slide.addEventListener('dragstart', (e) => {
+  slide.addEventListener('dragstart', () => {
     slide.classList.add('draggable');
     console.log(slide);
   });
@@ -49,7 +49,7 @@ slideSquares.forEach((square) => {
   square.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
-  square.addEventListener('drop', (e) => {
+  square.addEventListener('drop', () => {
     const dropElement = document.getElementsByClassName('draggable')[0];
     if(square.children.length > 0) return;
     square.appendChild(dropElement);
@@ -57,10 +57,10 @@ slideSquares.forEach((square) => {
   });
 });
 imageSquares.forEach((square) => {
-  square.addEventListener('dragover', (e) => {
+  square.addEventListener('dragover', () => {
     e.preventDefault();
   });
-  square.addEventListener('drop', (e) => {
+  square.addEventListener('drop', () => {
     const dropElement = document.getElementsByClassName('draggable')[0];
     if(square.children.length > 0) return;
     square.appendChild(dropElement);
